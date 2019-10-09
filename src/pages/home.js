@@ -12,7 +12,7 @@ import { StyleSheet,View,Text,TouchableOpacity, Image, Dimensions } from 'react-
 const Home = ({ navigation }) => (
   <View>
     <View style={styles.container}>
-      <TouchableOpacity style={styles.item}> 
+      <TouchableOpacity style={styles.item} onPress={() => {navigation.navigate('AllList')}}> 
         <Image style={styles.itemIcon} source={require('../img/paw.png')}/>
         <Text style={styles.itemTitle}>List all breeds</Text>
       </TouchableOpacity> 

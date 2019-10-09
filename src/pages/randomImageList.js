@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, Image, Dimensions, TouchableOpacity, FlatList, ActivityIndicator} from 'react-native';
 import api from '../services/api';
-export default class RandomImageList extends Component {
 
+export default class RandomImageList extends Component {
     state = { 
         images: [],
         loading: false, 
@@ -11,7 +11,7 @@ export default class RandomImageList extends Component {
         this.loadImages()
       }
 
-    loadImages = async () => {
+    loadImages = () => {
         this.setState({loading: true})
         api.get('image/random/12')
         .then(response => {
