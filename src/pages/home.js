@@ -6,66 +6,65 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Button, 
-  Image
-} from 'react-native';
+import React from 'react';
+import { StyleSheet,View,Text,TouchableOpacity, Image, Dimensions } from 'react-native';
 
-import {
-    Header,
-    Colors,
-  } from 'react-native/Libraries/NewAppScreen';
+const Home = ({ navigation }) => (
+  <View>
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.item}> 
+        <Image style={styles.itemIcon} source={require('../img/paw.png')}/>
+        <Text style={styles.itemTitle}>List all breeds</Text>
+      </TouchableOpacity> 
 
-export default class App extends Component{
-    render() {
-        return (
-            <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>Dog API</Text>
-                <View style={{ flexDirection: 'row' }}>
-                    <View style={styles.button}>
-                        <Button title="Teste"/> 
-                    </View>  
-                    <View style={styles.button}>
-                        <Button title="Teste"/> 
-                    </View>  
-                </View> 
-            </View>            
-        );
-    }
-}
-  
+      <TouchableOpacity style={styles.item}> 
+        <Image style={styles.itemIcon} source={require('../img/gallery.png')}/>
+        <Text style={styles.itemTitle}>Random Image</Text>
+      </TouchableOpacity> 
+
+      <TouchableOpacity style={styles.item}> 
+        <Image style={styles.itemIcon} source={require('../img/dog.png')}/>
+        <Text style={styles.itemTitle}>By breed</Text>
+      </TouchableOpacity> 
+
+      <TouchableOpacity style={styles.item}> 
+        <Image style={styles.itemIcon} source={require('../img/subdog.png')}/>
+        <Text style={styles.itemTitle}>By sub-breed</Text>
+      </TouchableOpacity> 
+      
+    </View>
+  </View>
+
+
+)
+export default Home;
+
 const styles = StyleSheet.create({
-  sectionContainer: {
+  
+  container: {
     flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  item: {
+    width: Dimensions.get('window').width *0.5, 
+    height: Dimensions.get('window').height *0.45,
+    borderWidth: 1, 
+    borderColor: 'lightgray', 
+    alignItems: 'center', 
     justifyContent: "center",
-    alignItems: "center",
+    
 
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-
-  button: { 
-    width: 150, 
-    height: 150,
-    backgroundColor: Colors.dark
-  },
-
-  logoimg: { 
-    width: 150, 
-    height: 150,
-    margin: 16,
   }, 
+  itemIcon: { 
+    width: 200, 
+    height: 150, 
+    resizeMode: "contain"
+
+  }, 
+  itemTitle: { 
+    marginTop: 16,
+    fontSize: 18,  
+
+  }
 });

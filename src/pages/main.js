@@ -6,14 +6,8 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Image,
-  Text,
-  TouchableOpacity
-} from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
 
 const Main = ({ navigation }) => (
       <View style={styles.sectionContainer}>

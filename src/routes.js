@@ -12,12 +12,17 @@ export const AppNavigator = createStackNavigator (
                 header: null,
             }
         },
-        Home: Home, 
+        Home: { 
+            screen: Home,
+            navigationOptions: { 
+                headerTitle: 'Home'
+            }
+        } 
 
     }, 
     {
         defaultNavigationOptions: { 
-            headerTransparent: true, 
+            headerTransparent: false, 
             headerBackTitle: null, 
             headerTintColor: 'black',
         }
