@@ -17,7 +17,7 @@ const Home = ({ navigation }) => (
         <Text style={styles.itemTitle}>List all breeds</Text>
       </TouchableOpacity> 
 
-      <TouchableOpacity style={styles.item}> 
+      <TouchableOpacity style={styles.item} onPress={() => {navigation.navigate('RandomImageList')}}> 
         <Image style={styles.itemIcon} source={require('../img/gallery.png')}/>
         <Text style={styles.itemTitle}>Random Image</Text>
       </TouchableOpacity> 

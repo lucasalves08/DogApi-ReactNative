@@ -2,7 +2,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 import { createAppContainer } from 'react-navigation'
 import Main from './pages/main'
 import Home from './pages/home'
-
+import RandomImageList from './pages/randomImageList'
 
 export const AppNavigator = createStackNavigator (
     { 
@@ -15,9 +15,15 @@ export const AppNavigator = createStackNavigator (
         Home: { 
             screen: Home,
             navigationOptions: { 
-                headerTitle: 'Home'
+                headerTitle: 'Home',
             }
-        } 
+        }, 
+        RandomImageList: { 
+            screen: RandomImageList, 
+            navigationOptions: { 
+                headerTitle: 'Random Image',
+            }
+        }      
 
     }, 
     {
