@@ -6,7 +6,8 @@ export default class AllList extends Component {
     state = {
         breeds: [],
         listOfBreeds: [],
-        list: ["Test","Test","Test","Test","Test","Test","Test","Test"],
+        textShow: -1,
+
     }
 
     componentDidMount() {
@@ -16,12 +17,10 @@ export default class AllList extends Component {
     loadBreeds = () => {
         api.get('list/all')
         .then(response => {
-            
             //Object.keys(response.data.message).map(key => this.state.breedDict[key])
             this.setState({ 
                 breeds: response.data.message, 
                 listOfBreeds: Object.keys(response.data.message)
-
              })  
             
             console.log(this.state.breeds) 
@@ -33,18 +32,19 @@ export default class AllList extends Component {
 
     }
 
-    renderItemSubList = ({ item }) => { 
-        <View>
-            <Text>{item}</Text>
-        </View>
-    }
-
     renderItem = ({ item }) => (
-        <TouchableOpacity>
-            <View style={styles.itemContainer}>
-                <Text style={styles.itemText}>{item}</Text>  
-            </View>
-        </TouchableOpacity>  
+        <View style={styles.itemContainer}>
+            
+            <Text style={styles.itemText}>{item}</Text> 
+            {
+               
+                this.state.breeds[item].length != 0  
+                ?   <View style={styles.subItemContainer}>
+                        {this.state.breeds[item].map((subBreed) => <Text style={styles.subItemText}>{subBreed}</Text>)}
+                    </View>
+                :   <View></View>
+                } 
+        </View> 
     )
 
     render() { 
@@ -53,9 +53,8 @@ export default class AllList extends Component {
                 <FlatList
                     contentContainerStyle={styles.list}
                     data={this.state.listOfBreeds}
-                    keyExtractor={(item, index) => index.toString()}
+                    keyExtractor={(item) => item}
                     renderItem={this.renderItem}
-
                 />
             </View>
         )
@@ -74,15 +73,31 @@ const styles = StyleSheet.create({
         backgroundColor: "lightgray"  
     },
     itemContainer: { 
-        alignItems: "center",
         margin: 1,
         backgroundColor: "white", 
         padding: 20,
         marginBottom: 8,
         borderRadius: 12, 
-        borderColor: "#434343" 
+        borderColor: "lightgray" 
     }, 
     itemText: { 
         fontSize: 32, 
+        textAlign: "center", 
+        
+        
+    },
+    subItemContainer: {
+        marginTop: 12,
+        margin: 1, 
+        padding: 12, 
+        borderTopColor: '#000000', 
+        borderTopWidth: 1,
+    },
+    subItemText: { 
+        fontSize: 24, 
+        
     }
+
+
+
 })
