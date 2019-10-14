@@ -22,12 +22,12 @@ const Home = ({ navigation }) => (
         <Text style={styles.itemTitle}>Random Image</Text>
       </TouchableOpacity> 
 
-      <TouchableOpacity style={styles.item}> 
+      <TouchableOpacity style={styles.item} onPress={() => {navigation.navigate('ByBreed')}}> 
         <Image style={styles.itemIcon} source={require('../img/dog.png')}/>
         <Text style={styles.itemTitle}>By breed</Text>
       </TouchableOpacity> 
 
-      <TouchableOpacity style={styles.item}> 
+      <TouchableOpacity style={styles.item} onPress={() => {navigation.navigate('SubBreed')}}> 
         <Image style={styles.itemIcon} source={require('../img/subdog.png')}/>
         <Text style={styles.itemTitle}>By sub-breed</Text>
       </TouchableOpacity> 

@@ -13,7 +13,7 @@ export default class RandomImageList extends Component {
 
     loadImages = () => {
         this.setState({loading: true})
-        api.get('image/random/12')
+        api.get('https://dog.ceo/api/breeds/image/random/12')
         .then(response => {
             this.setState({ images: [... this.state.images, ...response.data.message] })
             this.setState({loading: false})

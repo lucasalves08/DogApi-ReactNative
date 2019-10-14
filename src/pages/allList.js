@@ -15,29 +15,24 @@ export default class AllList extends Component {
     }
 
     loadBreeds = () => {
-        api.get('list/all')
+        api.get('https://dog.ceo/api/breeds/list/all')
         .then(response => {
             //Object.keys(response.data.message).map(key => this.state.breedDict[key])
             this.setState({ 
                 breeds: response.data.message, 
                 listOfBreeds: Object.keys(response.data.message)
              })  
-            
-            console.log(this.state.breeds) 
         })
         .catch(error => {
           alert(error)
-          
         });
 
     }
 
     renderItem = ({ item }) => (
         <View style={styles.itemContainer}>
-            
             <Text style={styles.itemText}>{item}</Text> 
             {
-               
                 this.state.breeds[item].length != 0  
                 ?   <View style={styles.subItemContainer}>
                         {this.state.breeds[item].map((subBreed) => <Text style={styles.subItemText}>{subBreed}</Text>)}
