@@ -1,3 +1,3 @@
 # DogApi-ReactNative
-###### Consumo de dog api utilizando React Native
+###### Consumo da dog-api utilizando React Native
 
